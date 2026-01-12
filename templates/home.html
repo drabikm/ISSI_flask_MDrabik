@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My movies</title>
+    <link rel="stylesheet" href="../static/styles.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fa-duotone fa-solid fa-camera"></i>My favourite movies</h1>
+        </div>
+    </header>
+<main>
+        <div class="container">
+            <div class="row">
+                <div class='column'>
+                    <h2>Movies:</h2>
+                    <form id="movie-list" method="POST" action="/">
+                        {% for movie in movies %}
+                        <li>
+                            <input type = 'checkbox' name="movieToRemove" value="{{ movie[0] }}">{{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }} </input>
+                        </li>
+                        {% endfor %}
+                        <button type="submit" name="deleteMovies"><i class="fa-duotone fa-solid fa-barcode"></i>Delete selected</button>
+                    </form>
+                    <a href='addMovie' class='button'>Add movie</a>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </main>
+</body>
+</html>
